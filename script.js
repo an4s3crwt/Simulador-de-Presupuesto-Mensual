@@ -22,7 +22,22 @@ $(document).ready(function(){
         e.preventDefault(); //necesario para que le drop se pueda realizar
     });
 
-    
+    // 4. Manejar el "drop"
+    $('#canasta').on("drop", function(e){
+        e.preventDefault(); 
+
+        //recuperar el nombre de la categoria que arrastra desde el dataTransfer
+        let categoria = e.dataTransfer.getData('text');
+
+        //verificar si esta categoría ya existe en la canasta para evitar duplicados
+        let existe = false;
+        //primero verificar y luego crear el item
+
+
+        let itemCanasta = $(`<div class="canasta-item"></div>`);
+        let nombreCat = $(`<span class="nombre"></span>`).text(categoria);
+        let precioCat = $(`<span class="precio"></span>`).text('$' + precios[categoria]);
+        let btnEliminar = $(`<button class="eliminar">Eliminar</button>`);
   
 
 
