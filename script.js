@@ -13,7 +13,7 @@ $(document).ready(function(){
         let categoriaArrastrada = $(this).text();
 
         //guardar el nombre de la categoia en el datatransfer
-        e.dataTransfer.setData('text', categoriaArrastrada);
+        e.originalEvent.dataTransfer.setData('text', categoriaArrastrada);
     });
 
     // 3. Permitir que el area de la canasta acepte elementos arrastrados
@@ -27,11 +27,20 @@ $(document).ready(function(){
         e.preventDefault(); 
 
         //recuperar el nombre de la categoria que arrastra desde el dataTransfer
-        let categoria = e.dataTransfer.getData('text');
+        let categoria = e.originalEvent.dataTransfer.getData('text');
 
         //verificar si esta categoría ya existe en la canasta para evitar duplicados
         let existe = false;
         //primero verificar y luego crear el item
+        $('#canasta .canasta-item').each(function(){
+            if($(this).find('.nombre').text() === categoria){
+                existe = true;
+            }
+        });
+        if (existe) {
+            alert('Esta categoría ya está en la canasta.');
+            return; // Salir si la categoría ya existe
+        }
 
 
         let itemCanasta = $(`<div class="canasta-item"></div>`);
@@ -40,6 +49,13 @@ $(document).ready(function(){
         let btnEliminar = $(`<button class="eliminar">Eliminar</button>`);
   
 
+        itemCanasta.append(nombreCat);
+        itemCanasta.append(precioCat);
+        itemCanasta.append(btnEliminar);
+       
 
+        $('#canasta').append(itemCanasta);
+
+});
 
 });
