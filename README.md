@@ -2,6 +2,8 @@
 
 Este proyecto es una aplicación interactiva creada con HTML, CSS, y JavaScript (jQuery), que permite a los usuarios calcular su presupuesto mensual arrastrando categorías de gasto a una "canasta". Cada categoría tiene un costo asociado, y el total se actualiza dinámicamente.
 
+![Demo](assets/presupuesto.gif)
+
 ## Características
 
 - **Interacción Drag & Drop**: Las categorías de gasto pueden ser arrastradas y soltadas en el área de la canasta.
