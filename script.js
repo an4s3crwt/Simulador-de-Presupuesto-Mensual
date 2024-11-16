@@ -78,4 +78,54 @@ function actualizarTotal(){
 
 }
 
+//crear el popup dinámicamente cuando se hace click en calcular Presupuesto
+$('#calcular-presupuesto').on("click", function(){
+    let total = 0;
+    let distribucion = [];
+
+    $('#canasta .cart-item').each(function(){
+        let categoria = $(this).find('.nombre').text();
+        let precio = parseFloat($(this).find('.precio').text().replace('$', ''));
+        total += precio;
+
+        distribucion.push({
+            nombre: categoria,
+            precio: precio
+        });
+    });
+
+    let popup  =`
+        <html>
+        <head>YEAH</head>
+        <body>
+        <div id="popup" class="popup">
+        <div class="popup-content">
+            
+            <h3>Resumen del Presupuesto</h3>
+            <p><strong>Total:</strong>$<span id="total-popup">${total.toFixed(2)}</span></p>
+            <p><strong>Distribución:</strong></p>
+            <ul id="distribucion-popup">
+            ${distribucion.map(i => `<li>${i.nombre}: $${i.precio.toFixed(2)}</li>`).join('')}
+            </ul>
+        </div>
+
+        </div>
+        </body>
+        </html>
+       
+        `;//HA DE SER CADENA DE TEXTO 
+
+        
+
+        
+        let ventana = window.open("", "_blank", "width=600,heigth=400");
+        ventana.document.write(popup);
+        ventana.document.close();
+
+        setTimeout(function(){
+            ventana.close();
+        }, 5000);
+
+})
+
 });
