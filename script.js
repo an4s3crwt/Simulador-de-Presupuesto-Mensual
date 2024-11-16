@@ -116,11 +116,17 @@ $('#calcular-presupuesto').on("click", function(){
         `;//HA DE SER CADENA DE TEXTO 
 
         
-
+        let width = 600;
+        let height = 400;
+        let left = (screen.width - width) / 2;
+        let top = (screen.height -height) / 2;
         
-        let ventana = window.open("", "_blank", "width=600,heigth=400");
+        let ventana = window.open("", "_blank", `width=${width},height=${height}, left=${left}, top=${top}`);
         ventana.document.write(popup);
         ventana.document.close();
+
+       
+
 
         setTimeout(function(){
             ventana.close();
