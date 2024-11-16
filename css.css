@@ -1,29 +1,161 @@
-#categorias, #canasta {
-    border: 1px solid #ccc;
-    padding: 10px;
-    width: 300px;
-    min-height: 150px;
-    margin: 10px;
+/* styles.css */
+
+/* General */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #e0e0e0; /* Escala de grises */
+    color: #333;
 }
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.categories, .cart, .summary {
+    background: #f5f5f5;
+    border-radius: 8px;
+    padding: 2rem;
+    width: 30%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 300px; /* Mínimo para diseño responsivo */
+    box-sizing: border-box; /* Para que el padding no afecte el ancho */
+}
+
+.categories h2, .cart h2, .summary h3 {
+    margin-bottom: 1.5rem;
+    color: #666;
+    text-align: center;
+}
+
 .categoria {
-    padding: 5px;
-    margin: 5px;
-    border: 1px solid #007bff;
-    background-color: #e7f1ff;
+    background: #e0e0e0;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
     cursor: grab;
+    text-align: center;
+    transition: background 0.3s;
 }
-#canasta {
-    background-color: #f9f9f9;
+
+.categoria:hover {
+    background: #c7c7c7;
 }
-.canasta-item {
-    padding: 5px;
-    margin: 5px;
-    background-color: #ffe7e7;
-    border: 1px solid #ff0000;
+
+.cart-header, .cart-items {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    margin-bottom: 1rem;
+}
+
+.cart-header {
+    font-weight: bold;
+    border-bottom: 1px solid #bbb;
+    padding-bottom: 0.5rem;
+}
+
+.cart-items {
+    gap: 1rem;
+    max-height: 400px; /* Limitar la altura máxima */
+    overflow-y: auto; /* Permitir desplazamiento si se excede la altura */
+}
+
+.cart-items .cart-item {
+    display: flex; /* Usamos flexbox para alinear los elementos */
+    justify-content: space-between; /* Asegura que los elementos se distribuyan correctamente */
+    align-items: center; /* Centra verticalmente los elementos */
+    padding: 0.5rem;
+    border-bottom: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 4px; /* Agrega un borde redondeado */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño */
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
+    width: 100%; /* Asegura que el cart-item no se salga del contenedor */
+}
+
+.cart-items .cart-item span {
+    text-align: left; /* Alinea los nombres y precios a la izquierda */
+    margin-right: 10px; /* Un pequeño espacio entre los elementos */
+    flex: 1; /* Hace que el precio y el nombre ocupen el espacio disponible */
+    white-space: nowrap; /* Evita que los textos se rompan */
+}
+
+.cart-items .cart-item .nombre {
+    font-weight: bold;
+}
+
+.cart-items .cart-item .precio {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+button.eliminar {
+    background: #999;
+    color: #fff;
+    border: none;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button.eliminar:hover {
+    background: #666;
+}
+
+/* Estilos adicionales */
+button.eliminar {
+    align-self: flex-start; /* Alinea el botón al inicio (de manera flexible) */
+}
+
+/* Estilos para el resumen */
+.summary {
+    width: 20%;
+}
+
+.summary-details {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
 }
-.canasta-item button {
-    margin-left: 10px;
+
+button#checkout {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    background: #bdbdbd;
+    color: #333;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button#checkout:hover {
+    background: #9e9e9e;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .categories, .cart, .summary {
+        width: 90%;
+    }
+
+    .cart-items .cart-item {
+        flex-direction: column; /* Cambiar a columna en pantallas pequeñas */
+        align-items: flex-start; /* Alineamos los elementos al principio */
+        width: 100%;
+    }
 }

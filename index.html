@@ -1,32 +1,47 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador de Presupuesto</title>
-    <link  href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="css.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador de Presupuesto</title>
+  <link rel="stylesheet" href="css.css">
 </head>
 <body>
-    <h1>Simulador de Presupuesto Mensual</h1>
-    <p>Arrastra las categorías de gasto a la canasta para calcular tu presupuesto.</p>
-
-    <div id="categorias">
-        <div class="categoria" draggable="true">Renta</div>
-        <div class="categoria" draggable="true">Comida</div>
-        <div class="categoria" draggable="true">Transporte</div>
-        <div class="categoria" draggable="true">Entretenimiento</div>
+  <div class="container">
+    <!-- Sección de Categorías -->
+    <div class="categories">
+      <h2>Categorías</h2>
+      <div class="categoria" draggable="true">Renta</div>
+      <div class="categoria" draggable="true">Comida</div>
+      <div class="categoria" draggable="true">Transporte</div>
+      <div class="categoria" draggable="true">Entretenimiento</div>
     </div>
 
-    <div id="canasta">
-        <p>Arrastra categorías aquí</p>
+    <!-- Canasta -->
+    <div class="cart">
+      <h2>Presupuesto Mensual</h2>
+      <div class="cart-header">
+        <span>Categoría</span>
+        <span>Precio</span>
+        <span>Total</span>
+      </div>
+      <div id="canasta" class="cart-items" style="border: 1px solid #ccc; padding: 10px; min-height: 100px;">
+        <!-- Aquí se agregarán dinámicamente las categorías arrastradas -->
+      </div>
     </div>
 
-    <div id="total">
-        <h3>Total del Presupuesto: $<span id="total-pagar">0.00</span></h3>
+    <!-- Resumen -->
+    <div class="summary">
+      <h3>Resumen</h3>
+      <div class="summary-details">
+        <p>Total Presupuesto:</p>
+        <p id="total-pagar">$0.00</p>
+      </div>
+      <button id="checkout">Calcular Presupuesto</button>
     </div>
+  </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

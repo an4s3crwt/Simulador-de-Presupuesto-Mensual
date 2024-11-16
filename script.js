@@ -32,7 +32,7 @@ $(document).ready(function(){
         //verificar si esta categoría ya existe en la canasta para evitar duplicados
         let existe = false;
         //primero verificar y luego crear el item
-        $('#canasta .canasta-item').each(function(){
+        $('#canasta .cart-item').each(function(){
             if($(this).find('.nombre').text() === categoria){
                 existe = true;
             }
@@ -43,7 +43,7 @@ $(document).ready(function(){
         }
 
 
-        let itemCanasta = $(`<div class="canasta-item"></div>`);
+        let itemCanasta = $(`<div class="cart-item"></div>`);
         let nombreCat = $(`<span class="nombre"></span>`).text(categoria);
         let precioCat = $(`<span class="precio"></span>`).text('$' + precios[categoria]);
         let btnEliminar = $(`<button class="eliminar">Eliminar</button>`);
@@ -68,7 +68,7 @@ function actualizarTotal(){
     let total = 0;
 
     //recorrer todos los elemntos de la canasta y sumar sus precios
-    $('#canasta .canasta-item').each(function(){
+    $('#canasta .cart-item').each(function(){
         let preciodeCadaItem = $(this).find('.precio').text();
         let precio = parseFloat(preciodeCadaItem.replace('$', ''));
         total +=precio;
