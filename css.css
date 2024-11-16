@@ -125,7 +125,7 @@ button.eliminar {
     font-weight: bold;
 }
 
-button#checkout {
+button#calcular-presupuesto {
     width: 100%;
     padding: 0.75rem;
     border: none;
@@ -137,7 +137,7 @@ button#checkout {
     transition: background 0.3s;
 }
 
-button#checkout:hover {
+button#calcular-presupuesto:hover {
     background: #9e9e9e;
 }
 
