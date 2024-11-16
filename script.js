@@ -50,6 +50,7 @@ $(document).ready(function(){
   
         btnEliminar.on("click", function(){
             itemCanasta.remove();
+            actualizarTotal();
         });
 
         itemCanasta.append(nombreCat);
@@ -58,7 +59,23 @@ $(document).ready(function(){
        
 
         $('#canasta').append(itemCanasta); //agregar el item en la canasta 
+        actualizarTotal();
 
 });
+
+
+function actualizarTotal(){
+    let total = 0;
+
+    //recorrer todos los elemntos de la canasta y sumar sus precios
+    $('#canasta .canasta-item').each(function(){
+        let preciodeCadaItem = $(this).find('.precio').text();
+        let precio = parseFloat(preciodeCadaItem.replace('$', ''));
+        total +=precio;
+    });
+
+    $('#total-pagar').text(total.toFixed(2));
+
+}
 
 });
