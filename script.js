@@ -48,13 +48,16 @@ $(document).ready(function(){
         let precioCat = $(`<span class="precio"></span>`).text('$' + precios[categoria]);
         let btnEliminar = $(`<button class="eliminar">Eliminar</button>`);
   
+        btnEliminar.on("click", function(){
+            itemCanasta.remove();
+        });
 
         itemCanasta.append(nombreCat);
         itemCanasta.append(precioCat);
         itemCanasta.append(btnEliminar);
        
 
-        $('#canasta').append(itemCanasta);
+        $('#canasta').append(itemCanasta); //agregar el item en la canasta 
 
 });
 
